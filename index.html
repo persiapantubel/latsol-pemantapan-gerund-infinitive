@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda Paket Soal Persiapantubel</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Fonts -->
+  <style>
+    @font-face {
+      font-family: 'MongoDB Value Serif';
+      src: url('https://cdn.jsdelivr.net/gh/mongodb/docs-assets@main/fonts/MongoDBValueSerif-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'MongoDB Value Serif';
+      src: url('https://cdn.jsdelivr.net/gh/mongodb/docs-assets@main/fonts/MongoDBValueSerif-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Euclid Circular A';
+      src: url('https://cdn.jsdelivr.net/gh/mongodb/docs-assets@main/fonts/EuclidCircularA-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Euclid Circular A';
+      src: url('https://cdn.jsdelivr.net/gh/mongodb/docs-assets@main/fonts/EuclidCircularA-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Euclid Circular A';
+      src: url('https://cdn.jsdelivr.net/gh/mongodb/docs-assets@main/fonts/EuclidCircularA-Semibold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'serif': ['"MongoDB Value Serif"', 'Georgia', 'serif'],
+            'sans': ['"Euclid Circular A"', 'system-ui', 'sans-serif'],
+            'mono': ['"Source Code Pro"', 'monospace'],
+          },
+          colors: {
+            'green-primary': '#6BE17E',
+            'yellow-primary': '#F0CD51',
+            'red-primary': '#E16B6B',
+            'dark-blue': '#001E2B',
+            'light-bg': '#F9FBFA',
+            'gray-border': '#E8EDEB',
+            'text-primary': '#1C2D38',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Packet Cards */
+    .packet-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .packet-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .packet-card-green::before {
+      background: linear-gradient(90deg, #6BE17E 0%, #4CAF50 100%);
+    }
+    
+    .packet-card-yellow::before {
+      background: linear-gradient(90deg, #F0CD51 0%, #F9A825 100%);
+    }
+    
+    .packet-card-red::before {
+      background: linear-gradient(90deg, #E16B6B 0%, #C95555 100%);
+    }
+    
+    .packet-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .packet-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .packet-card:active {
+      transform: translateY(-2px);
+    }
+    
+    /* Selection Styles */
+    ::selection {
+      background-color: #6BE17E;
+      color: #001E2B;
+    }
+    
+    /* Scrollbar Styles */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #F3F4F6;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #D1D5DB;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9CA3AF;
+    }
+  </style>
+</head>
+<body class="bg-light-bg min-h-screen font-sans text-text-primary">
+  
+  <!-- Header -->
+  <header class="bg-dark-blue text-white py-4 px-6 shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-green-primary rounded-lg flex items-center justify-center">
+          <span class="font-serif font-bold text-dark-blue text-xl">P</span>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-medium">PERSIAPANTUBEL</h1>
+          <p class="text-xs text-gray-400 font-mono">KHUSUS SISWA</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-sm hover:text-green-primary transition-colors">Beranda</a>
+        <a href="#pilih-paket" class="text-sm hover:text-green-primary transition-colors">Paket Soal</a>
+        <a href="https://persiapantubel.com/product" target="_blank" class="text-sm hover:text-green-primary transition-colors">Persiapantubel</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    
+    <!-- Hero Section -->
+    <div class="text-center mb-12 py-12">
+      <h2 class="font-serif text-4xl md:text-5xl font-medium text-dark-blue mb-4">
+        Pemantapan <span class="text-green-primary">Gerund & Infinitive</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+        Seluruh Kata Kerja yang Ada di Website ini telah Mencakup Seluruh Kelompok Kata Kerja yang Diikuti oleh Gerund & Infinitive-yang pernah keluar di SPMB TB & TOEFL ITP
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="bg-white rounded-xl px-6 py-4 shadow-md border border-gray-100">
+          <p class="font-mono text-3xl font-bold text-green-primary">415</p>
+          <p class="text-sm text-gray-500">Total Soal</p>
+        </div>
+        <div class="bg-white rounded-xl px-6 py-4 shadow-md border border-gray-100">
+          <p class="font-mono text-3xl font-bold text-green-primary">5</p>
+          <p class="text-sm text-gray-500">Paket Latihan</p>
+        </div>
+        <div class="bg-white rounded-xl px-6 py-4 shadow-md border border-gray-100">
+          <p class="font-mono text-3xl font-bold text-green-primary">5</p>
+          <p class="text-sm text-gray-500">Menit/Soal</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Packets Grid -->
+    <div id="pilih-paket" class="mb-8">
+      <h3 class="font-serif text-2xl font-medium text-dark-blue mb-6 flex items-center gap-2">
+        <span class="w-1 h-8 bg-green-primary rounded-full"></span>
+        Pilih Paket Soal
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        
+        <!-- Paket 1 (Mudah) - Green -->
+        <a href="https://latsol-pemantapan-gerund-infinitive-paket-1-tingkat-mudah.vercel.app/" 
+           target="_blank"
+           class="packet-card packet-card-green bg-white rounded-xl p-5 shadow-md border border-gray-100 cursor-pointer block">
+          <div class="flex items-start justify-between mb-3">
+            <span class="text-xs text-gray-400 font-mono uppercase tracking-wider">PAKET</span>
+            <svg class="w-5 h-5 text-green-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-dark-blue mb-1">Paket Soal 1</h4>
+          <p class="text-sm text-gray-500">83 soal</p>
+          <span class="inline-block mt-3 px-2 py-1 bg-green-primary/10 text-green-primary text-xs font-medium rounded">Mudah</span>
+        </a>
+
+        <!-- Paket 2 (Mudah) - Green -->
+        <a href="https://latsol-pemantapan-gerund-infinitive-paket-2-tingkat-mudah.vercel.app/" 
+           target="_blank"
+           class="packet-card packet-card-green bg-white rounded-xl p-5 shadow-md border border-gray-100 cursor-pointer block">
+          <div class="flex items-start justify-between mb-3">
+            <span class="text-xs text-gray-400 font-mono uppercase tracking-wider">PAKET</span>
+            <svg class="w-5 h-5 text-green-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-dark-blue mb-1">Paket Soal 2</h4>
+          <p class="text-sm text-gray-500">83 soal</p>
+          <span class="inline-block mt-3 px-2 py-1 bg-green-primary/10 text-green-primary text-xs font-medium rounded">Mudah</span>
+        </a>
+
+        <!-- Paket 1 (Sedang) - Yellow -->
+        <a href="https://latsol-pemantapan-gerund-infinitive-paket-1-tingkat-sedang.vercel.app/" 
+           target="_blank"
+           class="packet-card packet-card-yellow bg-white rounded-xl p-5 shadow-md border border-gray-100 cursor-pointer block">
+          <div class="flex items-start justify-between mb-3">
+            <span class="text-xs text-gray-400 font-mono uppercase tracking-wider">PAKET</span>
+            <svg class="w-5 h-5 text-yellow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-dark-blue mb-1">Paket Soal 1</h4>
+          <p class="text-sm text-gray-500">83 soal</p>
+          <span class="inline-block mt-3 px-2 py-1 bg-yellow-primary/10 text-yellow-primary text-xs font-medium rounded">Sedang</span>
+        </a>
+
+        <!-- Paket 2 (Sedang) - Yellow -->
+        <a href="https://latsol-pemantapan-gerund-infinitive-paket-2-tingkat-sedang.vercel.app/" 
+           target="_blank"
+           class="packet-card packet-card-yellow bg-white rounded-xl p-5 shadow-md border border-gray-100 cursor-pointer block">
+          <div class="flex items-start justify-between mb-3">
+            <span class="text-xs text-gray-400 font-mono uppercase tracking-wider">PAKET</span>
+            <svg class="w-5 h-5 text-yellow-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-dark-blue mb-1">Paket Soal 2</h4>
+          <p class="text-sm text-gray-500">83 soal</p>
+          <span class="inline-block mt-3 px-2 py-1 bg-yellow-primary/10 text-yellow-primary text-xs font-medium rounded">Sedang</span>
+        </a>
+
+        <!-- Sulit - Red -->
+        <a href="https://latsol-pemantapan-gerund-infinitive-tingkat-sulit.vercel.app/" 
+           target="_blank"
+           class="packet-card packet-card-red bg-white rounded-xl p-5 shadow-md border border-gray-100 cursor-pointer block">
+          <div class="flex items-start justify-between mb-3">
+            <span class="text-xs text-gray-400 font-mono uppercase tracking-wider">PAKET</span>
+            <svg class="w-5 h-5 text-red-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h4 class="font-serif text-lg font-medium text-dark-blue mb-1">Tingkat Sulit</h4>
+          <p class="text-sm text-gray-500">166 soal</p>
+          <span class="inline-block mt-3 px-2 py-1 bg-red-primary/10 text-red-primary text-xs font-medium rounded">Sulit</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-gray-100 mt-12">
+      <h3 class="font-serif text-xl font-medium text-dark-blue mb-4">Petunjuk Pengerjaan</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 bg-green-primary text-dark-blue rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+            <p class="text-gray-600 text-sm">Pilih salah satu paket soal dari grid di atas</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 bg-green-primary text-dark-blue rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+            <p class="text-gray-600 text-sm">Kerjakan soal satu per satu dengan timer 5 menit</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 bg-green-primary text-dark-blue rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+            <p class="text-gray-600 text-sm">Pilih jawaban yang menurut Kamu benar</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 bg-green-primary text-dark-blue rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+            <p class="text-gray-600 text-sm">Klik "Kirim Jawaban" untuk melihat hasil</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 bg-green-primary text-dark-blue rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+            <p class="text-gray-600 text-sm">Baca pembahasan untuk memahami jawaban</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 bg-green-primary text-dark-blue rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+            <p class="text-gray-600 text-sm">Lanjutkan ke soal berikutnya atau review</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-blue text-white py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-gray-400 text-sm">
+        &copy; 2026 Persiapantubel
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
